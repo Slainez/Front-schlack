@@ -1,0 +1,87 @@
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+//   border: 1px solid #000000;
+//   background-color: aqua;
+// }
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+#sidebar {
+  height: 100vh;
+  min-width: 150px;
+  color: #c3a343;
+  // color: #D1D2D3B3;
+  border: 1px solid rgb(46, 46, 46);
+  // background-color: #1E2028;
+  background-color: #19171d;
+}
+
+#logo{
+  height: 180px;
+  width: 180px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+h2 {
+  // font-family: 'Russo One', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+ul {
+  border-top: 1px solid #D1D2D3B3;
+  padding-top: 20px;
+  list-style: none;
+  // font-family: 'Russo one', serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#chat-area {
+  padding-top: 10px;
+  color: white;
+  border: 1px solid rgb(46, 46, 46);
+  border-left: none;
+  background-color: #222529;
+}
+
+.form-control {
+  background-color: #d1d2d313;
+}
+
+#message-area {
+  margin: 50px;
+  position: relative;
+}
+
+.user {
+  font-weight: bold;
+  color: #c3a343
+}
+
+p {
+  color: #D1D2D3B3;
+}
+
+#wysiwyg {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 10px;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
