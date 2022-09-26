@@ -1,41 +1,6 @@
-<div class="container-fluid">
-  <div class="row">
-    <div id="sidebar" class="col-2">
-      <img id="logo" src="..\..\assets\img\Logo_Schalck1.png" alt="Logo">
-      <h2>Canaux</h2>
-      <ul>
-        <li><i class="fa-solid fa-hashtag"></i>#Général</li>
-        <li><i class="fa-solid fa-hashtag"></i>#Canal 1</li>
-        <li><i class="fa-solid fa-hashtag"></i>#Canal 2</li>
-        <li><i class="fa-solid fa-hashtag"></i>#Canal 3</li>
-        <li><i class="fa-solid fa-hashtag"></i>#Canal 4</li>
-      </ul>
-    </div>
-    <div id="chat-area" class="col-10">
-      <div class="searchbar">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-          <button class="btn btn btn-outline-warning" type="submit">Envoyer</button>
-        </form>
-      </div>
-      <div id="message-area">
-        <div class="container-chat">
-          <p class="user">Sullyvan :</p>
-          <p class="message">Hey Christophe on t'attends !!!</p>
-
-          <p class="user">Sam :</p>
-          <p class="message">Bah ouais et c'est le week end là !!!</p>
-
-          <p class="user">Benjamin :</p>
-          <p class="message">Euhhh bah voilà quoi, j'aurais pas dis mieux</p>
-        </div>
-      </div>
-      <div id="wysiwyg">
-        <form class=" d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Envoyer un message" aria-label="Search">
-          <button class="btn btn btn-outline-warning" type="submit">Envoyer</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+<app-ui>
+  <app-header class="tr-header"></app-header>
+  <app-nav class="tr-nav"></app-nav>
+  <app-footer class="tr-footer"></app-footer>
+  <!-- <router-outlet class="tr-content"></router-outlet> -->
+</app-ui>
