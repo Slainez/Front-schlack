@@ -17,8 +17,9 @@ export class PageAddChannelComponent implements OnInit {
   ngOnInit(): void {}
 
   public action(item: Channel) {
-    this.channelService.add(item).subscribe(() => {
-      this.router.navigate(['']);
+    this.channelService.add(item).subscribe((data) => {
+      this.router.navigate([`listMessages/${data.id}`]);
+      this.channelService.getChannels();
     });
   }
 }

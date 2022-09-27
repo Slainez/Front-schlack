@@ -12,7 +12,6 @@ export class NavComponent implements OnInit {
   constructor(private channelsService: ChannelsService) {
     this.channelsService.collection$.subscribe((data) => {
       this.collection = data;
-      console.log('this.collection    ' + this.collection);
     });
   }
 
