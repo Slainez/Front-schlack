@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="name">Nom du channel</label>
+    <input type="text" class="form-control" id="name" formControlName="name">
+
+
+  </div>
+
+  <div class="form-group">
+    <label for="channelType">Type de channel</label>
+    <select class="form-control" id="channelType" formControlName="channelType">
+      <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+    </select>
+  </div>
+
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
