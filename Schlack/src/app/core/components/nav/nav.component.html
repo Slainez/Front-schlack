@@ -1,3 +1,4 @@
+<fa-icon [icon]="faPlus" (click)="open()"></fa-icon>
 <ul class="nav flex-column" *ngFor="let item of collection">
   <app-btn-link link="{{'listMessages/'+item.id}}" [name]="item.name"></app-btn-link>
 </ul>

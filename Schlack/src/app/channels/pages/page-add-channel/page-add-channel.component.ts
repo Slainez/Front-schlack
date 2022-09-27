@@ -9,17 +9,17 @@ import { ChannelsService } from '../../services/Channels.service';
   styleUrls: ['./page-add-channel.component.scss'],
 })
 export class PageAddChannelComponent implements OnInit {
-  public channel: Channel;
+  // public channel: Channel;
   constructor(private channelService: ChannelsService, private router: Router) {
-    this.channel = new Channel();
+    // this.channel = new Channel();
   }
 
   ngOnInit(): void {}
 
-  public action(item: Channel) {
-    this.channelService.add(item).subscribe((data) => {
-      this.router.navigate([`listMessages/${data.id}`]);
-      this.channelService.getChannels();
-    });
-  }
+  // public action(item: Channel) {
+  // this.channelService.add(item).subscribe((data) => {
+  //   this.router.navigate([`listMessages/${data.id}`]);
+  //   this.channelService.getChannels();
+  // });
+  // }
 }
