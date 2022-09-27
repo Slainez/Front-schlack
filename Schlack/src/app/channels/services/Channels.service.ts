@@ -16,4 +16,8 @@ export class ChannelsService {
       this.urlApi + `/channels`
     );
   }
+
+  public add(item: Channel): Observable<Channel> {
+    return this.httpClient.post<Channel>(`${this.urlApi}/channels`, item);
+  }
 }

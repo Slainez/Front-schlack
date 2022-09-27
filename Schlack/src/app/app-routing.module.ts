@@ -3,11 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListMessagesComponent } from './messages/pages/list-messages/list-messages.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'listMessages/8', pathMatch: 'full' },
+  { path: '', redirectTo: 'listMessages/1', pathMatch: 'full' },
+  {
+    path: 'messages',
+    loadChildren: () =>
+      import('./messages/messages.module').then((m) => m.MessagesModule),
+  },
   {
     path: 'channels',
     loadChildren: () =>
-      import('./messages/messages.module').then((m) => m.MessagesModule),
+      import('./channels/channels.module').then((m) => m.ChannelsModule),
   },
   {
     path: 'listMessages/:id',
