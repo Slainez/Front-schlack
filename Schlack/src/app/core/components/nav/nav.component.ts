@@ -4,6 +4,7 @@ import { FormChannelComponent } from 'src/app/channels/components/form-channel/f
 import { ChannelsService } from 'src/app/channels/services/Channels.service';
 import { Channel } from '../../models/channel';
 import { faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { FormEditChannelComponent } from 'src/app/channels/components/form-edit-channel/form-edit-channel.component';
 
 @Component({
   selector: 'app-nav',
@@ -27,6 +28,16 @@ export class NavComponent implements OnInit {
       size: 'sm',
       centered: true,
       animation: true,
+      // backdrop: 'static',
+    });
+    modalRef.componentInstance.name = 'World';
+  }
+  edit(id: number) {
+    const modalRef = this.modalService.open(FormEditChannelComponent, {
+      size: 'sm',
+      centered: true,
+      animation: true,
+
       // backdrop: 'static',
     });
     modalRef.componentInstance.name = 'World';
