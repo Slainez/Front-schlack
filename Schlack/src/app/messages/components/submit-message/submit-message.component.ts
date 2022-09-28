@@ -45,5 +45,6 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
     this.form.value.channel.id = this.id;
     this.form.value.timestamp = Date.now();
     this.messagesService.add(this.form.value);
+    this.form.controls[`content`].reset();
   }
 }
