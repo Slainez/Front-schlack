@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChannelType } from 'src/app/core/enums/channel-type';
@@ -30,7 +30,7 @@ export class FormChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: [this.channel.name],
+      name: [this.channel.name, [Validators.required, Validators.minLength(2)]],
     });
   }
 
@@ -41,11 +41,4 @@ export class FormChannelComponent implements OnInit {
       this.channelService.getChannels();
     });
   }
-
-  // public action(item: Channel) {
-  //   this.channelService.add(item).subscribe((data) => {
-  //     this.router.navigate([`listMessages/${data.id}`]);
-  //     this.channelService.getChannels();
-  //   });
-  // }
 }
