@@ -28,7 +28,7 @@ export class FormEditChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: [this.channel.name, [Validators.required, Validators.minLength(2)]],
+      name: [this.name, [Validators.required, Validators.minLength(2)]],
       id: [this.id],
     });
   }
