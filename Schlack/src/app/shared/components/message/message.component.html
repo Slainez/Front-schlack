@@ -1,2 +1,10 @@
-<p>User : {{user}}</p>
-<p>Message: {{msg}}</p>
+<div class="card">
+  <div class="card-body ">
+    <h5 class="card-title" *ngIf="user != previousUser">{{ user}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted" *ngIf="user != previousUser">{{ date |date :'HH:mm' }}</h6>
+    <span class="card-text"> {{ msg }} </span>
+    <div class="hover-text ">
+      <span class="tooltip-text"> {{ date |date:'HH:mm dd/MM/yy' }} </span>
+    </div>
+  </div>
+</div>
