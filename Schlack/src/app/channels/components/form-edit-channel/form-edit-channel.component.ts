@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChannelType } from 'src/app/core/enums/channel-type';
@@ -17,11 +17,9 @@ export class FormEditChannelComponent implements OnInit {
   public types: string[];
   @Input() id!: number;
   @Input() name!: string;
-  // @Output() public submitted: EventEmitter<Channel>;
   constructor(
     private formBuilder: FormBuilder,
     private channelService: ChannelsService,
-    // private router: Router,
     private modal: NgbActiveModal
   ) {
     this.channel = new Channel();
@@ -30,7 +28,7 @@ export class FormEditChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: [this.channel.name],
+      name: [this.channel.name, [Validators.required, Validators.minLength(2)]],
       id: [this.id],
     });
   }

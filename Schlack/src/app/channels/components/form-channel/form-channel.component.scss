@@ -2,3 +2,11 @@
   margin: 10px;
   padding: 5px;
 }
+Form {
+  .ng-valid.ng-touched {
+    border: 2px solid var(--app-success);
+  }
+  .ng-invalid.ng-touched {
+    border: 2px solid var(--app-error);
+  }
+}
