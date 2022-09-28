@@ -1,0 +1,7 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="name">Modifier le nom du channel</label>
+    <input type="text" class="form-control" id="name" [value]="name" formControlName="name">
+  </div>
+  <button type="submit" class="btn btn-primary">Modifier</button>
+</form>
