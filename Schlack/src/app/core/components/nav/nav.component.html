@@ -1,7 +1,20 @@
-<fa-icon [icon]="faPlus" (click)="open()"></fa-icon>
+<div class="title-container">
+  <h5 id="chan-list">Canaux</h5>
+  <fa-icon id="add-chan" [icon]="faPlus" (click)="open()"></fa-icon>
+</div>
 <ul class="nav flex-column" *ngFor="let item of collection">
-  <app-btn-link link="{{'listMessages/'+item.id}}" [name]="item.name">
-    <fa-icon [icon]="faEdit" (click)="edit(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>
-    <fa-icon [icon]="faTrash" (click)="delete(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>
-  </app-btn-link>
+  <div class="container">
+    <div class="icon-chan">
+      <fa-icon [icon]="faHashtag"></fa-icon>
+    </div>
+    <div class="chan list-chan">
+      <app-btn-link link="{{'listMessages/'+item.id}}" [name]="item.name">
+        <div id="btn-chan">
+          <fa-icon id="btn-edit" [icon]="faEdit" (click)="edit(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>
+          <fa-icon id="btn-delete" [icon]="faTrash" (click)="delete(item.id, item.name)" *ngIf="item.id !== 1">
+          </fa-icon>
+        </div>
+      </app-btn-link>
+    </div>
+  </div>
 </ul>

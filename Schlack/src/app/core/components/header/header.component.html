@@ -4,7 +4,8 @@
       <h1>Schlack</h1>
     </div>
     <div class="col-3" *ngIf="isPseudoExist">
-      Bonjour {{pseudo}}
+      <p class="greetings">Bonjour </p>
+      <p class="pseudo">{{pseudo}}</p>
     </div>
     <div class="col-3" *ngIf="!isPseudoExist">
       <form (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">
