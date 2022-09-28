@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChannelType } from 'src/app/core/enums/channel-type';
 import { Channel } from 'src/app/core/models/channel';
@@ -21,9 +21,8 @@ export class FormEditChannelComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private channelService: ChannelsService,
-    private router: Router,
-    private modal: NgbActiveModal,
-    private modalService: NgbModal
+    // private router: Router,
+    private modal: NgbActiveModal
   ) {
     this.channel = new Channel();
     this.types = Object.values(ChannelType);
