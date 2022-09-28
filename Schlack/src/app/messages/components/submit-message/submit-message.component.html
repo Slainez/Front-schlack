@@ -1,0 +1,12 @@
+<nav class="navbar bg-light">
+  <div class="container-fluid">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="d-flex">
+      <div class="form-group">
+        <input class="form-control me-2" type="text" placeholder="Type msg" id="content" formControlName="content">
+      </div>
+      <button class="btn btn-outline-dark" type="submit">
+        <fa-icon [icon]="faPaperPlane"></fa-icon>
+      </button>
+    </form>
+  </div>
+</nav>

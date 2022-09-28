@@ -31,5 +31,7 @@ export class MessagesService {
     this.httpClient
       .get<Message[]>(`${this.urlApi}/messages/` + id)
       .subscribe((receivedItems) => this.collection2$.next(receivedItems));
+  public add(msg: Message) {
+    this.httpClient.post<Message>(`${this.urlApi}/messages`, msg).subscribe();
   }
 }

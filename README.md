@@ -7,7 +7,7 @@ Front-schlack is a Angular Front-end Slack like
 Use the Javascript package manager [npm](https://www.npmjs.com/) to install Front-schlack.
 
 ```bash
-mpn install
+npm install
 ```
 
 ## Usage

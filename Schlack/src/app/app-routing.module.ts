@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListMessagesComponent } from './messages/pages/list-messages/list-messages.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'listMessages/8', pathMatch: 'full' },
+  { path: '', redirectTo: 'listMessages/1', pathMatch: 'full' },
   {
     path: 'channels',
     loadChildren: () =>

@@ -7,10 +7,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
+import { MessagesModule } from '../messages/messages.module';
 
 @NgModule({
   declarations: [HeaderComponent, NavComponent, FooterComponent],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, MessagesModule],
   exports: [
     UiModule,
     IconsModule,

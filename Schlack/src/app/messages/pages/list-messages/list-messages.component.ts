@@ -36,6 +36,9 @@ export class ListMessagesComponent implements OnInit, OnChanges {
         this.messagesService.collection2$.subscribe((data) => {
           this.collection = data;
           console.log('this.collection 2------' + data);
+        messagesService.getAllMessagesFromChannel(this.id);
+        this.messagesService.collection$.subscribe((data) => {
+          this.collection = data;
         });
       });
   }
