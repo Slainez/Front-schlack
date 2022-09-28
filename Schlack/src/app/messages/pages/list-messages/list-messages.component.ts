@@ -35,8 +35,13 @@ export class ListMessagesComponent implements OnInit, OnChanges {
         this.messagesService.collection2$.subscribe((data) => {
           this.collection = data;
         });
+        // messagesService.getAllMessagesFromChannel(this.id);
+        // this.messagesService.collection$.subscribe((data) => {
+        //   this.collection = data;
+        // });
       });
   }
+
   ngOnChanges(): void {
     this.id = this.route.snapshot.params['id'];
   }

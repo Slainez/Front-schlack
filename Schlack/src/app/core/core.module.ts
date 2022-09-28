@@ -9,10 +9,11 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SharedModule } from '../shared/shared.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MessagesModule } from '../messages/messages.module';
 
 @NgModule({
   declarations: [HeaderComponent, NavComponent, FooterComponent],
-  imports: [CommonModule, SharedModule, NgbModule, FontAwesomeModule],
+  imports: [CommonModule, SharedModule, MessagesModule, NgbModule, FontAwesomeModule],
   exports: [
     UiModule,
     IconsModule,

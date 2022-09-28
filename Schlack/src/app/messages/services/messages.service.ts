@@ -21,15 +21,19 @@ export class MessagesService {
     // );
   }
 
-  public getAllMessagesFromChannel(id: number) {
-    this.collection$ = this.httpClient.get<Message[]>(
-      `${this.urlApi}/messages/` + id
-    );
-  }
+  // public getAllMessagesFromChannel(id: number) {
+  //   this.collection$ = this.httpClient.get<Message[]>(
+  //     `${this.urlApi}/messages/` + id
+  //   );
+  // }
 
   public getAllMessagesFromChannel2(id: number) {
     this.httpClient
       .get<Message[]>(`${this.urlApi}/messages/` + id)
       .subscribe((receivedItems) => this.collection2$.next(receivedItems));
+  }
+  public add(msg: Message) {
+    this.httpClient.post<Message>(`${this.urlApi}/messages`, msg).subscribe();
+    this.getAllMessagesFromChannel2(msg.channel.id);
   }
 }
