@@ -33,7 +33,11 @@ export class MessagesService {
       .subscribe((receivedItems) => this.collection2$.next(receivedItems));
   }
   public add(msg: Message) {
-    this.httpClient.post<Message>(`${this.urlApi}/messages`, msg).subscribe();
-    this.getAllMessagesFromChannel2(msg.channel.id);
+    this.httpClient
+      .post<Message>(`${this.urlApi}/messages`, msg)
+      .subscribe((data) => {
+        console.log('data post ', data);
+        this.getAllMessagesFromChannel2(data.channel.id);
+      });
   }
 }
