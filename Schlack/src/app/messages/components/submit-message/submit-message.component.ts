@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, HostListener, OnChanges, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Message } from 'src/app/core/models/message';
 import { MessagesService } from '../../services/messages.service';
@@ -6,8 +6,11 @@ import {
   faPaperPlane,
   IconDefinition,
 } from '@fortawesome/free-solid-svg-icons';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { editorConfig } from 'src/app/shared/utils/editorConfig';
+// import { editorConfig } from '';
 
 @Component({
   selector: 'app-submit-message',
@@ -20,6 +23,7 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
   public form!: FormGroup;
   public id!: number;
   public url!: string;
+  editorConfig: AngularEditorConfig = editorConfig;
   constructor(private messagesService: MessagesService, public router: Router) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -39,7 +43,11 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
       channel: new FormControl({ id: this.id }),
     });
   }
-
+  @HostListener('document:keydown.control.enter', ['$event'])
+  onKeydownHandler(event: KeyboardEvent) {
+    event.preventDefault();
+    this.onSubmit();
+  }
   ngOnChanges(): void {}
   public onSubmit() {
     this.form.value.channel.id = this.id;

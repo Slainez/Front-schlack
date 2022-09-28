@@ -6,6 +6,8 @@ import { ListMessagesComponent } from './pages/list-messages/list-messages.compo
 import { SharedModule } from '../shared/shared.module';
 import { SubmitMessageComponent } from './components/submit-message/submit-message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 @NgModule({
   declarations: [ListMessagesComponent, SubmitMessageComponent],
@@ -14,6 +16,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MessagesRoutingModule,
     SharedModule,
     FontAwesomeModule,
+    HttpClientModule,
+    AngularEditorModule,
   ],
   exports: [SubmitMessageComponent],
 })
