@@ -21,6 +21,13 @@ export class ChannelsService {
     return this.httpClient.post<Channel>(`${this.urlApi}/channels`, item);
   }
 
+  public update(item: Channel): Observable<Channel> {
+    return this.httpClient.put<Channel>(
+      `${this.urlApi}/channels/` + item.id,
+      item
+    );
+  }
+
   public getChannels() {
     this.httpClient
       .get<Channel[]>(this.urlApi + `/channels`)

@@ -37,10 +37,8 @@ export class NavComponent implements OnInit {
       size: 'sm',
       centered: true,
       animation: true,
-
-      // backdrop: 'static',
     });
-    modalRef.componentInstance.name = 'World';
+    modalRef.componentInstance.id = id;
   }
 
   ngOnInit(): void {}
