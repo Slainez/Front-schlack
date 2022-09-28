@@ -6,7 +6,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./message.component.scss'],
 })
 export class MessageComponent implements OnInit {
+  @Input() public previousUser!: string;
   @Input() public user!: string;
+  @Input() public date!: string;
   @Input() public msg!: string;
   constructor() {}
 

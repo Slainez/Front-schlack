@@ -2,5 +2,7 @@
   <app-message msg={{item.content}} user={{item.user}}></app-message>
 </div> -->
 <div *ngFor="let item of collection">
-  <app-message msg={{item.content}} user={{item.user}}></app-message>
+  <app-message previousUser="{{item.id === 1 ? null : collection[collection.indexOf(item)- 1].user }}"
+    msg={{item.content}} user={{item.user}} date="{{item.timestamp}}">
+  </app-message>
 </div>
