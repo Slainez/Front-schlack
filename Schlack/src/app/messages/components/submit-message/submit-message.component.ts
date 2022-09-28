@@ -23,7 +23,9 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
   public form!: FormGroup;
   public id!: number;
   public url!: string;
+  public pseudo!: string | null;
   editorConfig: AngularEditorConfig = editorConfig;
+
   constructor(private messagesService: MessagesService, public router: Router) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
@@ -34,12 +36,12 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    let nb: number = Math.floor(Math.random() * 666);
+    this.pseudo = localStorage.getItem('pseudo');
     this.url = this.router.routerState.snapshot.url;
     this.id = Number(this.url.substring(this.url.lastIndexOf('/') + 1));
     this.form = new FormGroup({
       content: new FormControl(''),
-      user: new FormControl(`User` + nb),
+      user: new FormControl(this.pseudo),
       channel: new FormControl({ id: this.id }),
     });
   }

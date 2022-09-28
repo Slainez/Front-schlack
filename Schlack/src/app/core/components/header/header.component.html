@@ -3,5 +3,15 @@
     <div class="col title">
       <h1>Schlack</h1>
     </div>
+    <div class="col-3" *ngIf="isPseudoExist">
+      Bonjour {{pseudo}}
+    </div>
+    <div class="col-3" *ngIf="!isPseudoExist">
+      <form (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">
+        <label for="pseudo">Entrez votre pseudo</label>
+        <input type="text" id="pseudo" formControlName="pseudo">
+        <input type="submit">
+      </form>
+    </div>
   </div>
 </div>
