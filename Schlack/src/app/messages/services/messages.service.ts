@@ -36,7 +36,6 @@ export class MessagesService {
     this.httpClient
       .post<Message>(`${this.urlApi}/messages`, msg)
       .subscribe((data) => {
-        console.log('data post ', data);
         this.getAllMessagesFromChannel2(data.channel.id);
       });
   }
