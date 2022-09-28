@@ -3,7 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormChannelComponent } from 'src/app/channels/components/form-channel/form-channel.component';
 import { ChannelsService } from 'src/app/channels/services/Channels.service';
 import { Channel } from '../../models/channel';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-nav',
@@ -13,6 +13,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class NavComponent implements OnInit {
   public collection!: Channel[];
   faPlus = faPlus;
+  faEdit = faEdit;
   constructor(
     private channelsService: ChannelsService,
     private modalService: NgbModal
@@ -25,7 +26,7 @@ export class NavComponent implements OnInit {
     const modalRef = this.modalService.open(FormChannelComponent, {
       size: 'sm',
       centered: true,
-      // animation: true,
+      animation: true,
       // backdrop: 'static',
     });
     modalRef.componentInstance.name = 'World';
