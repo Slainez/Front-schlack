@@ -32,13 +32,14 @@ export class NavComponent implements OnInit {
     });
     modalRef.componentInstance.name = 'World';
   }
-  edit(id: number) {
+  edit(id: number, name: string) {
     const modalRef = this.modalService.open(FormEditChannelComponent, {
       size: 'sm',
       centered: true,
       animation: true,
     });
     modalRef.componentInstance.id = id;
+    modalRef.componentInstance.name = name;
   }
 
   ngOnInit(): void {}

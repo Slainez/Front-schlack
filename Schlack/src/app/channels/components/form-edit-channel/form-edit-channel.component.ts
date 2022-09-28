@@ -16,6 +16,7 @@ export class FormEditChannelComponent implements OnInit {
   public form!: FormGroup;
   public types: string[];
   @Input() id!: number;
+  @Input() name!: string;
   // @Output() public submitted: EventEmitter<Channel>;
   constructor(
     private formBuilder: FormBuilder,
