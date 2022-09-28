@@ -23,4 +23,9 @@ export class MessagesService {
       `${this.urlApi}/messages/` + id
     );
   }
+
+  public add(msg: Message): Observable<any> {
+    console.log('msg----', msg);
+    return this.httpClient.post<Message>(`${this.urlApi}/messages`, msg);
+  }
 }

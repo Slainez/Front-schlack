@@ -26,11 +26,11 @@ export class ListMessagesComponent implements OnInit, OnChanges {
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
         this.id = this.route.snapshot.params['id'];
-        console.log(event);
+        // console.log(event);
         messagesService.getAllMessagesFromChannel(this.id);
         this.messagesService.collection$.subscribe((data) => {
           this.collection = data;
-          console.log('this.collection ------' + this.collection);
+          // console.log('this.collection ------' + this.collection);
         });
       });
   }
