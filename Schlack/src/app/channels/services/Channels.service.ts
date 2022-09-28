@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import { Channel } from 'src/app/core/models/Channel';
 import { environment } from 'src/environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Channel } from 'src/app/core/models/channel';
@@ -32,5 +31,9 @@ export class ChannelsService {
     this.httpClient
       .get<Channel[]>(this.urlApi + `/channels`)
       .subscribe((receivedItems) => this.collection$.next(receivedItems));
+  }
+
+  public delete(id: number): Observable<Channel> {
+    return this.httpClient.delete<Channel>(`${this.urlApi}/channels/` + id);
   }
 }
