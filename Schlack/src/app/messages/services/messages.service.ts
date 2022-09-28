@@ -24,8 +24,7 @@ export class MessagesService {
     );
   }
 
-  public add(msg: Message): Observable<any> {
-    console.log('msg----', msg);
-    return this.httpClient.post<Message>(`${this.urlApi}/messages`, msg);
+  public add(msg: Message) {
+    this.httpClient.post<Message>(`${this.urlApi}/messages`, msg).subscribe();
   }
 }
