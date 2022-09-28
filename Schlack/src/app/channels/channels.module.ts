@@ -6,9 +6,10 @@ import { PageAddChannelComponent } from './pages/page-add-channel/page-add-chann
 import { SharedModule } from '../shared/shared.module';
 import { FormChannelComponent } from './components/form-channel/form-channel.component';
 import { FormEditChannelComponent } from './components/form-edit-channel/form-edit-channel.component';
+import { FormDeleteChannelComponent } from './components/form-delete-channel/form-delete-channel.component';
 
 @NgModule({
-  declarations: [PageAddChannelComponent, FormChannelComponent, FormEditChannelComponent],
+  declarations: [PageAddChannelComponent, FormChannelComponent, FormEditChannelComponent, FormDeleteChannelComponent],
   imports: [CommonModule, ChannelsRoutingModule, SharedModule],
 })
 export class ChannelsModule {}
