@@ -3,10 +3,9 @@
   <fa-icon id="add-chan" [icon]="faPlus" (click)="open()"></fa-icon>
 </div>
 <ul class="nav flex-column" *ngFor="let item of collection">
-  <div class="container">
-    <fa-icon [icon]="faHashtag"></fa-icon>
+  <div class="chan-container">
     <app-btn-link link="{{'listMessages/'+item.id}}" [name]="item.name">
-      <span class="btn-chan">
+      <span class="btn-chan buttons">
         <fa-icon id="btn-edit" [icon]="faEdit" (click)="edit(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>
         <fa-icon id="btn-delete" [icon]="faTrash" (click)="delete(item.id, item.name)" *ngIf="item.id !== 1">
         </fa-icon>
