@@ -5,6 +5,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
 })
+/**
+ *
+ * @Description this component is used to display a message
+ *
+ */
 export class MessageComponent implements OnInit {
   @Input() public previousUser!: string;
   @Input() public user!: string;
