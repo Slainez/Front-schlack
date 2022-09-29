@@ -27,10 +27,10 @@ export class ChannelsService {
    * Function to update an existing Channel using POST method
    */
 
-  public update(item: Channel): Observable<Channel> {
+  public update(channel: Channel): Observable<Channel> {
     return this.httpClient.put<Channel>(
-      `${this.urlApi}/channels/` + item.id,
-      item
+      `${this.urlApi}/channels/` + channel.id,
+      channel
     );
   }
 

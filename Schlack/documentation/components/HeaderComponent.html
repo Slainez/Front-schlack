@@ -158,6 +158,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#forgetPseudo" >forgetPseudo</a>
+                            </li>
+                            <li>
                                 <a href="#ngOnInit" >ngOnInit</a>
                             </li>
                             <li>
@@ -208,6 +212,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="forgetPseudo"></a>
+                    <span class="name">
+                        <span class="modifier">Public</span>
+                        <span ><b>forgetPseudo</b></span>
+                        <a href="#forgetPseudo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forgetPseudo()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/core/components/header/header.component.ts:49</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="ngOnInit"></a>
                     <span class="name">
                         <span ><b>ngOnInit</b></span>
@@ -224,8 +267,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="25"
-                            class="link-to-prism">src/app/core/components/header/header.component.ts:25</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app/core/components/header/header.component.ts:28</a></div>
                 </td>
             </tr>
 
@@ -263,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/core/components/header/header.component.ts:31</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/core/components/header/header.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -387,11 +430,14 @@ export class HeaderComponent implements OnInit {
   public pseudoGroup!: FormGroup;
 
   constructor() {
+    /*
+     * check if pseudo is not set in localstorage
+     * and display form to set pseudo
+     * if its already set display welcome pseudo
+     */
     if (localStorage.getItem(&#x27;pseudo&#x27;) &#x3D;&#x3D;&#x3D; null) {
-      console.log(&#x27;null&#x27;);
       this.isPseudoExist &#x3D; false;
     } else {
-      console.log(&#x27;not null&#x27;);
       this.isPseudoExist &#x3D; true;
       this.pseudo &#x3D; localStorage.getItem(&#x27;pseudo&#x27;);
     }
@@ -403,29 +449,47 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  /*
+   * function to set a &#x27;pseudo&#x27; in localstorage
+   * and display &quot;bienvenu &#x27;Pseudo&#x27;&quot;
+   */
   public onSubmit() {
-    console.log(&#x27;toto &#x3D; &#x27;, this.pseudoGroup.value);
     localStorage.setItem(&#x27;pseudo&#x27;, this.pseudoGroup.value.pseudo);
+    this.isPseudoExist &#x3D; true;
+    this.pseudo &#x3D; localStorage.getItem(&#x27;pseudo&#x27;);
+  }
+
+  /*
+   * function to remove localstorage to
+   * let the user recreate a &#x27;pseudo&#x27;
+   */
+
+  public forgetPseudo(): void {
+    localStorage.removeItem(&#x27;pseudo&#x27;);
+    this.pseudo &#x3D; null;
+    this.isPseudoExist &#x3D; false;
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container text-center&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container&quot;&gt;
   &lt;div class&#x3D;&quot;row&quot;&gt;
     &lt;div class&#x3D;&quot;col title&quot;&gt;
       &lt;h1&gt;Schlack&lt;/h1&gt;
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-3&quot; *ngIf&#x3D;&quot;isPseudoExist&quot;&gt;
-      &lt;p class&#x3D;&quot;greetings&quot;&gt;Bonjour &lt;/p&gt;
-      &lt;p class&#x3D;&quot;pseudo&quot;&gt;{{pseudo}}&lt;/p&gt;
+    &lt;div class&#x3D;&quot;col greetings&quot; *ngIf&#x3D;&quot;isPseudoExist&quot;&gt;
+      &lt;span class&#x3D;&quot;greetings-text&quot;&gt;Bonjour&lt;/span&gt;
+      &lt;span class&#x3D;&quot;greetings-pseudo&quot;&gt;{{pseudo}}&lt;/span&gt;
     &lt;/div&gt;
-    &lt;div class&#x3D;&quot;col-3&quot; *ngIf&#x3D;&quot;!isPseudoExist&quot;&gt;
-      &lt;form (ngSubmit)&#x3D;&quot;onSubmit()&quot; [formGroup]&#x3D;&quot;pseudoGroup&quot;&gt;
-        &lt;label for&#x3D;&quot;pseudo&quot;&gt;Entrez votre pseudo&lt;/label&gt;
-        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;pseudo&quot; formControlName&#x3D;&quot;pseudo&quot;&gt;
-        &lt;input type&#x3D;&quot;submit&quot;&gt;
+    &lt;div class&#x3D;&quot;col&quot;&gt;
+      &lt;button class&#x3D;&quot;btn btn-secondary btn-logout&quot; *ngIf&#x3D;&quot;isPseudoExist&quot; (click)&#x3D;&quot;forgetPseudo()&quot;&gt;Logout&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col pseudo&quot; *ngIf&#x3D;&quot;!isPseudoExist&quot;&gt;
+      &lt;form class&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; [formGroup]&#x3D;&quot;pseudoGroup&quot;&gt;
+        &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;pseudo&quot; placeholder&#x3D;&quot;Entrez votre pseudo&quot; formControlName&#x3D;&quot;pseudo&quot;&gt;
+        &lt;input class&#x3D;&quot;btn btn-secondary btn-send&quot; type&#x3D;&quot;submit&quot; value&#x3D;&quot;Valider&quot;&gt;
       &lt;/form&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -437,20 +501,49 @@ export class HeaderComponent implements OnInit {
                 <p class="comment">
                     <code>./header.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.col-3 {
-  display: flex;
+                <pre class="line-numbers"><code class="language-scss">h1 {
+  color: #c3a343;
+  margin-left: 30px;
+  margin-right: 35px;
 }
 
 .greetings {
-  margin-left: 15px;
-  margin-top: 15px;
-  margin-right: 5px;
   font-weight: 700;
+  display: flex;
+  padding-top: 12px;
+}
+
+.greetings-text {
+  margin-right: 5px;
+}
+
+.btn-logout {
+  margin-top: 8px;
+}
+
+.btn-send {
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#pseudo {
+  margin-bottom: 10px;
 }
 
 .pseudo{
-  margin-top: 15px;
   font-weight: 700;
+}
+
+.form {
+  display: flex;
+  position: absolute;
+  right: 0;
+  margin-top: 9px;
+  margin-right: 20px;
+}
+
+#test {
+  margin-bottom: 10px;
 }
 </code></pre>
     </div>
@@ -480,8 +573,8 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container text-center">  <div class="row">    <div class="col title">      <h1>Schlack</h1>    </div>    <div class="col-3" *ngIf="isPseudoExist">      <p class="greetings">Bonjour </p>      <p class="pseudo">{{pseudo}}</p>    </div>    <div class="col-3" *ngIf="!isPseudoExist">      <form (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">        <label for="pseudo">Entrez votre pseudo</label>        <input type="text" id="pseudo" formControlName="pseudo">        <input type="submit">      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row">    <div class="col title">      <h1>Schlack</h1>    </div>    <div class="col greetings" *ngIf="isPseudoExist">      <span class="greetings-text">Bonjour</span>      <span class="greetings-pseudo">{{pseudo}}</span>    </div>    <div class="col">      <button class="btn btn-secondary btn-logout" *ngIf="isPseudoExist" (click)="forgetPseudo()">Logout</button>    </div>    <div class="col pseudo" *ngIf="!isPseudoExist">      <form class="form" (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">        <input type="text" id="pseudo" placeholder="Entrez votre pseudo" formControlName="pseudo">        <input class="btn btn-secondary btn-send" type="submit" value="Valider">      </form>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

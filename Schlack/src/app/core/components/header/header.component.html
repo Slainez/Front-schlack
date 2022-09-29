@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row d-flex">
+  <div class="row">
     <div class="col title">
       <h1>Schlack</h1>
     </div>
@@ -8,12 +8,12 @@
       <span class="greetings-pseudo">{{pseudo}}</span>
     </div>
     <div class="col">
-      <button class="btn btn-secondary" *ngIf="isPseudoExist" (click)="forgetPseudo()">Logout</button>
+      <button class="btn btn-secondary btn-logout" *ngIf="isPseudoExist" (click)="forgetPseudo()">Logout</button>
     </div>
     <div class="col pseudo" *ngIf="!isPseudoExist">
       <form class="form" (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">
         <input type="text" id="pseudo" placeholder="Entrez votre pseudo" formControlName="pseudo">
-        <input type="submit">
+        <input class="btn btn-secondary btn-send" type="submit" value="Valider">
       </form>
     </div>
   </div>

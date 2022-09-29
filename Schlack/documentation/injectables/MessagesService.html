@@ -79,6 +79,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#catchError$" >catchError$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#collection$" >collection$</a>
                             </li>
                             <li>
@@ -109,6 +113,10 @@
                                     <span class="modifier">Public</span>
                                 <a href="#getAllMessagesFromChannel2" >getAllMessagesFromChannel2</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleError" >handleError</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -132,7 +140,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/messages/services/messages.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/messages/services/messages.service.ts:16</a></div>
                             </td>
                         </tr>
 
@@ -197,8 +205,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/messages/services/messages.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">src/app/messages/services/messages.service.ts:69</a></div>
                 </td>
             </tr>
 
@@ -268,8 +276,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/messages/services/messages.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="45"
+                            class="link-to-prism">src/app/messages/services/messages.service.ts:45</a></div>
                 </td>
             </tr>
 
@@ -317,12 +325,115 @@
             </tr>
         </tbody>
     </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleError"></a>
+                    <span class="name">
+                        <span class="modifier">Private</span>
+                        <span ><b>handleError</b></span>
+                        <a href="#handleError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleError(error: <a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank">HttpErrorResponse</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/messages/services/messages.service.ts:26</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>error</td>
+                                    <td>
+                                                <code><a href="https://angular.io/api/common/http/HttpErrorResponse" target="_blank" >HttpErrorResponse</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>
             <section>
     
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catchError$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>catchError$</b></span>
+                        <a href="#catchError$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;any&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/messages/services/messages.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -404,7 +515,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/messages/services/messages.service.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/messages/services/messages.service.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -418,8 +529,8 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
-import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
+import { BehaviorSubject, catchError, Observable, tap, throwError } from &#x27;rxjs&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
 import { Message } from &#x27;src/app/core/models/message&#x27;;
 
@@ -431,26 +542,60 @@ export class MessagesService {
   public collection2$: BehaviorSubject&lt;Message[]&gt; &#x3D; new BehaviorSubject&lt;
     Message[]
   &gt;([]);
+  public catchError$: BehaviorSubject&lt;any&gt; &#x3D; new BehaviorSubject&lt;any&gt;(null);
   private urlApi: string;
 
   constructor(private httpClient: HttpClient) {
     this.urlApi &#x3D; environment.urlApi;
-    // this.collection$ &#x3D; this.httpClient.get&lt;Message[]&gt;(
-    //   &#x60;${this.urlApi}/messages&#x60;
-    // );
   }
 
-  // public getAllMessagesFromChannel(id: number) {
-  //   this.collection$ &#x3D; this.httpClient.get&lt;Message[]&gt;(
-  //     &#x60;${this.urlApi}/messages/&#x60; + id
-  //   );
-  // }
+  /*
+   * function to handle Errors from back end
+   */
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status &#x3D;&#x3D;&#x3D; 0) {
+      console.error(&#x27;An error occurred:&#x27;, error.error);
+    } else {
+      console.error(
+        &#x60;Backend returned code ${error.status}, body was: &#x60;,
+        error.error
+      );
+    }
+    return throwError(
+      () &#x3D;&gt; new Error(&#x27;Something bad happened; please try again later.&#x27;)
+    );
+  }
+
+  /*
+   * function to get Messages from a specific Channel
+   * to refresh our collection2$
+   */
 
   public getAllMessagesFromChannel2(id: number) {
     this.httpClient
       .get&lt;Message[]&gt;(&#x60;${this.urlApi}/messages/&#x60; + id)
+      .pipe(
+        catchError(this.handleError),
+        tap((data) &#x3D;&gt; {
+          if (data.length &lt;&#x3D; 0) {
+            this.catchError$.next(
+              &quot;Ce canal n&#x27;existe pas ou ne contient pas de message &quot;
+            );
+          } else {
+            this.catchError$.next(null);
+          }
+        })
+      )
       .subscribe((receivedItems) &#x3D;&gt; this.collection2$.next(receivedItems));
   }
+
+  /*
+   * Function to add a Message using POST method
+   * and call getAllMessagesFromChannel2 to refresh
+   * our messages from a specific Channel
+   */
+
   public add(msg: Message) {
     this.httpClient
       .post&lt;Message&gt;(&#x60;${this.urlApi}/messages&#x60;, msg)

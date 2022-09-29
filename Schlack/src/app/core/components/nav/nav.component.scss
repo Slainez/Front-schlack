@@ -23,5 +23,10 @@ fa-icon {
 .btn-chan{
   position: absolute;
   right: 0;
+  visibility: hidden;
+}
+
+.chan-container:hover .btn-chan{
+  visibility: visible;
 }
 

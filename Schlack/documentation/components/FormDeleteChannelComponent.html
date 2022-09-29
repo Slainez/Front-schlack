@@ -362,8 +362,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/app/channels/components/form-delete-channel/form-delete-channel.component.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/channels/components/form-delete-channel/form-delete-channel.component.ts:25</a></div>
                 </td>
             </tr>
 
@@ -465,6 +465,10 @@ export class FormDeleteChannelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /*
+   * Function to delete a specific Channel using UPDATE method and id
+   * close the modal and call getChannels to refresh collection$
+   */
   public onDelete() {
     this.channelService.delete(this.id).subscribe((data) &#x3D;&gt; {
       this.modal.close(&#x27;Close click&#x27;);
@@ -476,9 +480,12 @@ export class FormDeleteChannelComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;Voulez vous supprimer le canal {{name}}&lt;/p&gt;
-&lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-danger&quot; (click)&#x3D;&quot;onDelete()&quot;&gt;Oui&lt;/button&gt;
-&lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;Non&lt;/button&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;form-group&quot;&gt;
+  &lt;p class&#x3D;&quot;confirm&quot;&gt;Voulez vous supprimer :&lt;/p&gt;
+  &lt;p class&#x3D;&quot;name&quot;&gt;{{name}}&lt;/p&gt;
+  &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-danger&quot; routerLink&#x3D;&quot;&quot; (click)&#x3D;&quot;onDelete()&quot;&gt;Oui&lt;/button&gt;
+  &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;btn btn-secondary&quot; (click)&#x3D;&quot;modal.close(&#x27;Close click&#x27;)&quot;&gt;Non&lt;/button&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -486,7 +493,31 @@ export class FormDeleteChannelComponent implements OnInit {
                 <p class="comment">
                     <code>./form-delete-channel.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.form-group{
+  margin: 50px;
+}
+
+.confirm {
+  font-weight: 600;
+  padding-left: 15px;
+}
+
+.name {
+  padding-left: 40px;
+}
+
+.btn {
+  width: 60px;
+}
+
+.btn-danger {
+  margin-left: 30px;
+}
+
+.btn-secondary {
+  margin-left: 10px;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -514,8 +545,8 @@ export class FormDeleteChannelComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>Voulez vous supprimer le canal {{name}}</p><button type="submit" class="btn btn-danger" (click)="onDelete()">Oui</button><button type="submit" class="btn btn-secondary" (click)="modal.close(\'Close click\')">Non</button></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><div class="form-group">  <p class="confirm">Voulez vous supprimer :</p>  <p class="name">{{name}}</p>  <button type="submit" class="btn btn-danger" routerLink="" (click)="onDelete()">Oui</button>  <button type="submit" class="btn btn-secondary" (click)="modal.close(\'Close click\')">Non</button></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FormDeleteChannelComponent'};
 </script>
