@@ -31,11 +31,20 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  /*
+   * function to set a 'pseudo' in localstorage
+   * and display "bienvenu 'Pseudo'"
+   */
   public onSubmit() {
     localStorage.setItem('pseudo', this.pseudoGroup.value.pseudo);
     this.isPseudoExist = true;
     this.pseudo = localStorage.getItem('pseudo');
   }
+
+  /*
+   * function to remove localstorage to
+   * let the user recreate a 'pseudo'
+   */
 
   public forgetPseudo(): void {
     localStorage.removeItem('pseudo');
