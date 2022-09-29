@@ -2,28 +2,34 @@
 /// Description design of user interface
 header {
   height: 65px;
-  background: var(--app-light);
+  // background: var(--app-light);
   padding: 0 $gutter;
   display: flex;
   align-items: center;
+  color: #D1D2D3;
+  background-color: #121016;
 }
 main {
-  background: var(--app-darklight);
+  // background: var(--app-darklight);
   min-height: calc(100vh - 65px);
   padding-top: 65px;
 }
 aside {
-  background: var(--app-darklight2);
+  // background: var(--app-darklight2);
   width: 250px;
   min-height: 100vh;
   position: fixed;
   z-index: 1000;
+  background-color: #121016;
+  color: #D1D2D3;
   .scroller {
     overflow-y: auto;
     max-height: 100vh;
     padding-bottom: 65px;
   }
+
 }
+
 .close-aside aside {
   width: 0;
   overflow: hidden;
@@ -45,9 +51,11 @@ aside {
 }
 .contents {
   flex-grow: 1;
+  background-color: #1A1D21;
 }
 footer {
-  background: var(--app-light);
+  // background: var(--app-light);
+  background-color: #1A1D21;
 }
 @media (min-width: $md-breakpoint) {
   .shadow {

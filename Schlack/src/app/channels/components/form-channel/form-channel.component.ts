@@ -30,7 +30,14 @@ export class FormChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      name: [this.channel.name, [Validators.required, Validators.minLength(2)]],
+      name: [
+        this.channel.name,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(15),
+        ],
+      ],
     });
   }
 

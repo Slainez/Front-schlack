@@ -3,7 +3,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormChannelComponent } from 'src/app/channels/components/form-channel/form-channel.component';
 import { ChannelsService } from 'src/app/channels/services/Channels.service';
 import { Channel } from '../../models/channel';
-import { faEdit, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+  faEdit,
+  faPlus,
+  faTrash,
+  faHashtag,
+} from '@fortawesome/free-solid-svg-icons';
 import { FormEditChannelComponent } from 'src/app/channels/components/form-edit-channel/form-edit-channel.component';
 import { FormDeleteChannelComponent } from 'src/app/channels/components/form-delete-channel/form-delete-channel.component';
 
@@ -14,9 +19,10 @@ import { FormDeleteChannelComponent } from 'src/app/channels/components/form-del
 })
 export class NavComponent implements OnInit {
   public collection!: Channel[];
-  faPlus = faPlus;
-  faEdit = faEdit;
-  faTrash = faTrash;
+  public faPlus = faPlus;
+  public faEdit = faEdit;
+  public faTrash = faTrash;
+  public faHashtag = faHashtag;
   constructor(
     private channelsService: ChannelsService,
     private modalService: NgbModal

@@ -1,0 +1,27 @@
+.chan-container {
+  display: flex;
+  gap: 5px;
+}
+
+.title-container {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+app-btn-link {
+  position: relative;
+  width: 100%;
+}
+
+fa-icon {
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-chan{
+  position: absolute;
+  right: 0;
+}
+

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+// import { faHashtag } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-btn-link',
@@ -8,6 +9,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class BtnLinkComponent implements OnInit {
   @Input() public link!: string;
   @Input() public name!: string;
+
+  // public faHashtag = faHashtag;
   constructor() {}
 
   ngOnInit(): void {}
