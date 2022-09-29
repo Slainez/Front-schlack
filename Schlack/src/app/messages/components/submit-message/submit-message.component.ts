@@ -29,11 +29,10 @@ export class SubmitMessageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pseudo = localStorage.getItem('pseudo');
     this.id = getIdFromUrl(this.router);
     this.form = new FormGroup({
       content: new FormControl(''),
-      user: new FormControl(this.pseudo),
+      user: new FormControl(''),
       channel: new FormControl({ id: this.id }),
     });
   }
@@ -59,6 +58,7 @@ export class SubmitMessageComponent implements OnInit {
     this.onSubmit();
   }
   public onSubmit() {
+    this.form.value.user = localStorage.getItem('pseudo');
     this.form.value.channel.id = this.id;
     this.form.value.timestamp = Date.now();
     this.messagesService.add(this.form.value);

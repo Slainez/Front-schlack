@@ -33,5 +33,13 @@ export class HeaderComponent implements OnInit {
 
   public onSubmit() {
     localStorage.setItem('pseudo', this.pseudoGroup.value.pseudo);
+    this.isPseudoExist = true;
+    this.pseudo = localStorage.getItem('pseudo');
+  }
+
+  public forgetPseudo(): void {
+    localStorage.removeItem('pseudo');
+    this.pseudo = null;
+    this.isPseudoExist = false;
   }
 }
