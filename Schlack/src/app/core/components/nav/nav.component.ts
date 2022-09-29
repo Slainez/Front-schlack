@@ -19,10 +19,10 @@ import { FormDeleteChannelComponent } from 'src/app/channels/components/form-del
 })
 export class NavComponent implements OnInit {
   public collection!: Channel[];
-  faPlus = faPlus;
-  faEdit = faEdit;
-  faTrash = faTrash;
-  faHashtag = faHashtag;
+  public faPlus = faPlus;
+  public faEdit = faEdit;
+  public faTrash = faTrash;
+  public faHashtag = faHashtag;
   constructor(
     private channelsService: ChannelsService,
     private modalService: NgbModal

@@ -1,5 +1,7 @@
 .container {
   display: flex;
+  gap: 5px;
+
 }
 
 .title-container {
@@ -12,21 +14,7 @@ fa-icon {
   margin-right: 5px;
 }
 
-#btn-edit {
-  margin-left: 10px;
-}
-
-#btn-edit:hover {
-  display: none;
-  margin-left: 10px;
-}
-
-#btn-delete {
-  margin-left: 5px;
-}
-
-#btn-delete:hover {
-  display: none;
-  margin-left: 5px;
+.btn-chan {
+  padding-left: 25px;
 }
 

@@ -1,19 +1,20 @@
 div.card {
   // padding-top: 10px;
   // padding-left: 10px;
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: 10px;
+  // margin-top: 10px;
+  // margin-left: 10px;
+  // margin-right: 10px;
   background-color: #1A1D21;
 }
 
 div.card :hover {
-  padding: 0 0 0 10px;
+  // padding: 0 0 0 10px;
   background-color: #222529;
 }
 
 .tooltip-text {
   visibility: hidden;
+  color: white;
 }
 .hover-text {
   display: flex ;
