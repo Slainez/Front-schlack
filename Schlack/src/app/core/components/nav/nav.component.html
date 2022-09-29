@@ -4,6 +4,7 @@
 </div>
 <ul class="nav flex-column" *ngFor="let item of collection">
   <div class="chan-container">
+    <fa-icon [icon]="faHashtag"></fa-icon>
     <app-btn-link link="{{'listMessages/'+item.id}}" [name]="item.name">
       <span class="btn-chan buttons">
         <fa-icon id="btn-edit" [icon]="faEdit" (click)="edit(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>

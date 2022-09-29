@@ -18,6 +18,10 @@ export class FormDeleteChannelComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /*
+   * Function to delete a specific Channel using UPDATE method and id
+   * close the modal and call getChannels to refresh collection$
+   */
   public onDelete() {
     this.channelService.delete(this.id).subscribe((data) => {
       this.modal.close('Close click');
