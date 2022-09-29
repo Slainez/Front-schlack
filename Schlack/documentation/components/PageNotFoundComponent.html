@@ -239,7 +239,15 @@ export class PageNotFoundComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;p&gt;page-not-found works!&lt;/p&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;test col-3 offset-3&quot;&gt;
+  &lt;img src&#x3D;&quot;../../../../assets/logo.png&quot; alt&#x3D;&quot;Logo Schlack&quot;&gt;
+  &lt;h2&gt;Page introuvable&lt;/h2&gt;
+  &lt;p&gt;La page que vous avez demandée n&#x27;existe pas ou plus.&lt;/p&gt;
+  &lt;hr&gt;
+
+
+  &lt;app-button-link class&#x3D;&quot;link&quot; routerLink&#x3D;&quot;&quot;&gt;&lt;button class&#x3D;&quot;btn btn-secondary&quot;&gt;Accueil&lt;/button&gt;&lt;/app-button-link&gt;
+&lt;/div&gt;
 </code></pre>
     </div>
 
@@ -247,7 +255,25 @@ export class PageNotFoundComponent implements OnInit {
                 <p class="comment">
                     <code>./page-not-found.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">.test {
+  text-align: center;
+  width : 50% ;
+
+}
+.link{
+  cursor : pointer;
+}
+
+img {
+  margin-top: 250px;
+  margin-bottom: 50px;
+}
+
+h2, p, hr, app-button-link {
+  color: #d1d2d3;
+}
+
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -275,8 +301,8 @@ export class PageNotFoundComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><p>page-not-found works!</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><div class="test col-3 offset-3">  <img src="../../../../assets/logo.png" alt="Logo Schlack">  <h2>Page introuvable</h2>  <p>La page que vous avez demandée n\'existe pas ou plus.</p>  <hr>  <app-button-link class="link" routerLink=""><button class="btn btn-secondary">Accueil</button></app-button-link></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'PageNotFoundComponent'};
 </script>

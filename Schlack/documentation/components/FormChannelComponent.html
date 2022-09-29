@@ -366,8 +366,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="37"
-                            class="link-to-prism">src/app/channels/components/form-channel/form-channel.component.ts:37</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/channels/components/form-channel/form-channel.component.ts:44</a></div>
                 </td>
             </tr>
 
@@ -508,7 +508,14 @@ export class FormChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form &#x3D; this.formBuilder.group({
-      name: [this.channel.name, [Validators.required, Validators.minLength(2)]],
+      name: [
+        this.channel.name,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(15),
+        ],
+      ],
     });
   }
 
@@ -541,9 +548,8 @@ export class FormChannelComponent implements OnInit {
                 <p class="comment">
                     <code>./form-channel.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">*{
-  margin: 10px;
-  padding: 5px;
+                <pre class="line-numbers"><code class="language-scss">.form-group{
+  margin: 50px;
 }
 Form {
   .ng-valid.ng-touched {
@@ -552,6 +558,15 @@ Form {
   .ng-invalid.ng-touched {
     border: 2px solid var(--app-error);
   }
+}
+label {
+  font-weight: 600;
+  margin-left: 35px;
+  margin-bottom: 20px;
+}
+button {
+  margin-left: 110px;
+  margin-bottom: 40px;
 }
 </code></pre>
     </div>
@@ -582,7 +597,7 @@ Form {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><form [formGroup]="form" (ngSubmit)="onSubmit()">  <div class="form-group">    <label for="name">Créer un channel </label>    <input type="text" class="form-control" id="name" formControlName="name">    <div class="alert alert-danger" *ngIf="form.controls[\'name\'].invalid && form.controls[\'name\'].touched">      Champ invalide    </div>  </div>  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Créer</button></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FormChannelComponent'};
 </script>
