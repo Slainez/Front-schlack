@@ -230,8 +230,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="40"
-                            class="link-to-prism">src/app/core/components/header/header.component.ts:40</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/app/core/components/header/header.component.ts:49</a></div>
                 </td>
             </tr>
 
@@ -306,8 +306,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="34"
-                            class="link-to-prism">src/app/core/components/header/header.component.ts:34</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/core/components/header/header.component.ts:38</a></div>
                 </td>
             </tr>
 
@@ -449,11 +449,20 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  /*
+   * function to set a &#x27;pseudo&#x27; in localstorage
+   * and display &quot;bienvenu &#x27;Pseudo&#x27;&quot;
+   */
   public onSubmit() {
     localStorage.setItem(&#x27;pseudo&#x27;, this.pseudoGroup.value.pseudo);
     this.isPseudoExist &#x3D; true;
     this.pseudo &#x3D; localStorage.getItem(&#x27;pseudo&#x27;);
   }
+
+  /*
+   * function to remove localstorage to
+   * let the user recreate a &#x27;pseudo&#x27;
+   */
 
   public forgetPseudo(): void {
     localStorage.removeItem(&#x27;pseudo&#x27;);
@@ -475,12 +484,12 @@ export class HeaderComponent implements OnInit {
       &lt;span class&#x3D;&quot;greetings-pseudo&quot;&gt;{{pseudo}}&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;col&quot;&gt;
-      &lt;button class&#x3D;&quot;btn btn-secondary&quot; *ngIf&#x3D;&quot;isPseudoExist&quot; (click)&#x3D;&quot;forgetPseudo()&quot;&gt;Logout&lt;/button&gt;
+      &lt;button class&#x3D;&quot;btn btn-secondary btn-logout&quot; *ngIf&#x3D;&quot;isPseudoExist&quot; (click)&#x3D;&quot;forgetPseudo()&quot;&gt;Logout&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class&#x3D;&quot;col pseudo&quot; *ngIf&#x3D;&quot;!isPseudoExist&quot;&gt;
       &lt;form class&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot; [formGroup]&#x3D;&quot;pseudoGroup&quot;&gt;
         &lt;input type&#x3D;&quot;text&quot; id&#x3D;&quot;pseudo&quot; placeholder&#x3D;&quot;Entrez votre pseudo&quot; formControlName&#x3D;&quot;pseudo&quot;&gt;
-        &lt;input type&#x3D;&quot;submit&quot;&gt;
+        &lt;input class&#x3D;&quot;btn btn-secondary btn-send&quot; type&#x3D;&quot;submit&quot; value&#x3D;&quot;Valider&quot;&gt;
       &lt;/form&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -508,8 +517,17 @@ export class HeaderComponent implements OnInit {
   margin-right: 5px;
 }
 
-.btn {
+.btn-logout {
   margin-top: 8px;
+}
+
+.btn-send {
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#pseudo {
+  margin-bottom: 10px;
 }
 
 .pseudo{
@@ -520,10 +538,13 @@ export class HeaderComponent implements OnInit {
   display: flex;
   position: absolute;
   right: 0;
-  margin-top: 12px;
+  margin-top: 9px;
   margin-right: 20px;
 }
 
+#test {
+  margin-bottom: 10px;
+}
 </code></pre>
     </div>
 
@@ -552,8 +573,8 @@ export class HeaderComponent implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row">    <div class="col title">      <h1>Schlack</h1>    </div>    <div class="col greetings" *ngIf="isPseudoExist">      <span class="greetings-text">Bonjour</span>      <span class="greetings-pseudo">{{pseudo}}</span>    </div>    <div class="col">      <button class="btn btn-secondary" *ngIf="isPseudoExist" (click)="forgetPseudo()">Logout</button>    </div>    <div class="col pseudo" *ngIf="!isPseudoExist">      <form class="form" (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">        <input type="text" id="pseudo" placeholder="Entrez votre pseudo" formControlName="pseudo">        <input type="submit">      </form>    </div>  </div></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><div class="container">  <div class="row">    <div class="col title">      <h1>Schlack</h1>    </div>    <div class="col greetings" *ngIf="isPseudoExist">      <span class="greetings-text">Bonjour</span>      <span class="greetings-pseudo">{{pseudo}}</span>    </div>    <div class="col">      <button class="btn btn-secondary btn-logout" *ngIf="isPseudoExist" (click)="forgetPseudo()">Logout</button>    </div>    <div class="col pseudo" *ngIf="!isPseudoExist">      <form class="form" (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">        <input type="text" id="pseudo" placeholder="Entrez votre pseudo" formControlName="pseudo">        <input class="btn btn-secondary btn-send" type="submit" value="Valider">      </form>    </div>  </div></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HeaderComponent'};
 </script>

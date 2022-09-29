@@ -1,10 +1,11 @@
 <div class="card">
-  <div class="card-body ">
+  <div class="card-body">
     <h5 class="card-title" *ngIf="user != previousUser">{{ user}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted" *ngIf="user != previousUser">{{ date |date :'HH:mm' }}</h6>
-    <span class="card-text" [innerHTML]="htmlString"></span>
+    <h6 class="card-subtitle text-muted mb-2" *ngIf="user != previousUser">{{ date |date :'HH:mm' }}</h6>
+    <span ngbTooltip="{{ date |date:'HH:mm dd/MM/yy' }}" [openDelay]="100" [closeDelay]="300"
+      triggers="mouseenter:mouseleave" placement="top" class="card-text" [innerHTML]="htmlString"></span>
     <div class="hover-text ">
-      <span class="tooltip-text"> {{ date |date:'HH:mm dd/MM/yy' }} </span>
+
     </div>
   </div>
 </div>

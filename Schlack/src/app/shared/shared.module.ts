@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 import { MessageComponent } from './components/message/message.component';
 import { TemplatesModule } from '../templates/templates.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [BtnLinkComponent, MessageComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgbModule],
   exports: [
     BtnLinkComponent,
     MessageComponent,

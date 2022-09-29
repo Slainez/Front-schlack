@@ -211,10 +211,11 @@ import { RouterModule } from &#x27;@angular/router&#x27;;
 import { MessageComponent } from &#x27;./components/message/message.component&#x27;;
 import { TemplatesModule } from &#x27;../templates/templates.module&#x27;;
 import { ReactiveFormsModule } from &#x27;@angular/forms&#x27;;
+import { NgbModule } from &#x27;@ng-bootstrap/ng-bootstrap&#x27;;
 
 @NgModule({
   declarations: [BtnLinkComponent, MessageComponent],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, NgbModule],
   exports: [
     BtnLinkComponent,
     MessageComponent,
