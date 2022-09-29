@@ -136,6 +136,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#catchError$" >catchError$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#collection" >collection</a>
                             </li>
                             <li>
@@ -195,7 +199,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:20</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:21</a></div>
                             </td>
                         </tr>
 
@@ -276,8 +280,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:29</a></div>
                 </td>
             </tr>
 
@@ -313,8 +317,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:40</a></div>
                 </td>
             </tr>
 
@@ -350,8 +354,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="46"
-                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:46</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="47"
+                            class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:47</a></div>
                 </td>
             </tr>
 
@@ -373,6 +377,32 @@
     <h3 id="inputs">
         Properties
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catchError$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>catchError$</b></span>
+                        <a href="#catchError$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.messagesService.catchError$</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -447,7 +477,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -474,7 +504,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:21</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/messages/pages/list-messages/list-messages.component.ts:22</a></div>
                         </td>
                     </tr>
 
@@ -507,6 +537,7 @@ import { getIdFromUrl } from &#x27;src/app/shared/utils/getIdFromUrl&#x27;;
 export class ListMessagesComponent implements OnInit, OnChanges {
   public collection!: Message[];
   public id!: number;
+  public catchError$ &#x3D; this.messagesService.catchError$;
   constructor(public messagesService: MessagesService, public router: Router) {
     this.getIdOfChannelFromUrl();
   }
@@ -541,10 +572,13 @@ export class ListMessagesComponent implements OnInit, OnChanges {
         <pre class="line-numbers"><code class="language-html">&lt;!-- &lt;div *ngFor&#x3D;&quot;let item of collection&quot;&gt;
   &lt;app-message msg&#x3D;{{item.content}} user&#x3D;{{item.user}}&gt;&lt;/app-message&gt;
 &lt;/div&gt; --&gt;
-&lt;div *ngFor&#x3D;&quot;let item of collection&quot;&gt;
+&lt;div *ngFor&#x3D;&quot;let item of collection&quot; class&#x3D;&quot;cardMsg&quot;&gt;
   &lt;app-message previousUser&#x3D;&quot;{{collection.indexOf(item) &#x3D;&#x3D;&#x3D; 0 ? null : collection[collection.indexOf(item)- 1].user }}&quot;
     msg&#x3D;{{item.content}} user&#x3D;{{item.user}} date&#x3D;&quot;{{item.timestamp}}&quot;&gt;
   &lt;/app-message&gt;
+&lt;/div&gt;
+&lt;div *ngIf&#x3D;&quot;catchError$ | async as message &quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
 &lt;/div&gt;
 </code></pre>
     </div>
@@ -553,7 +587,15 @@ export class ListMessagesComponent implements OnInit, OnChanges {
                 <p class="comment">
                     <code>./list-messages.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss"></code></pre>
+                <pre class="line-numbers"><code class="language-scss">p {
+  color: #d1d2d3;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+.cardMsg{
+  margin-top: 13px;
+}
+</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -581,8 +623,8 @@ export class ListMessagesComponent implements OnInit, OnChanges {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><!-- <div *ngFor="let item of collection">  <app-message msg={{item.content}} user={{item.user}}></app-message></div> --><div *ngFor="let item of collection">  <app-message previousUser="{{collection.indexOf(item) === 0 ? null : collection[collection.indexOf(item)- 1].user }}"    msg={{item.content}} user={{item.user}} date="{{item.timestamp}}">  </app-message></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><!-- <div *ngFor="let item of collection">  <app-message msg={{item.content}} user={{item.user}}></app-message></div> --><div *ngFor="let item of collection" class="cardMsg">  <app-message previousUser="{{collection.indexOf(item) === 0 ? null : collection[collection.indexOf(item)- 1].user }}"    msg={{item.content}} user={{item.user}} date="{{item.timestamp}}">  </app-message></div><div *ngIf="catchError$ | async as message ">  <p>{{ message }}</p></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'ListMessagesComponent'};
 </script>

@@ -866,6 +866,11 @@ fa-icon {
 .btn-chan{
   position: absolute;
   right: 0;
+  visibility: hidden;
+}
+
+.chan-container:hover .btn-chan{
+  visibility: visible;
 }
 
 </code></pre>
@@ -897,7 +902,7 @@ fa-icon {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="title-container">  <h5 id="chan-list">Canaux</h5>  <fa-icon id="add-chan" [icon]="faPlus" (click)="open()"></fa-icon></div><ul class="nav flex-column" *ngFor="let item of collection">  <div class="chan-container">    <fa-icon [icon]="faHashtag"></fa-icon>    <app-btn-link link="{{\'listMessages/\'+item.id}}" [name]="item.name">      <span class="btn-chan buttons">        <fa-icon id="btn-edit" [icon]="faEdit" (click)="edit(item.id, item.name)" *ngIf="item.id !== 1"></fa-icon>        <fa-icon id="btn-delete" [icon]="faTrash" (click)="delete(item.id, item.name)" *ngIf="item.id !== 1">        </fa-icon>      </span>    </app-btn-link>  </div></ul></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'NavComponent'};
 </script>

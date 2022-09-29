@@ -201,8 +201,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="19"
-                            class="link-to-prism">src/app/channels/services/Channels.service.ts:19</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/channels/services/Channels.service.ts:22</a></div>
                 </td>
             </tr>
 
@@ -272,8 +272,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="36"
-                            class="link-to-prism">src/app/channels/services/Channels.service.ts:36</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="52"
+                            class="link-to-prism">src/app/channels/services/Channels.service.ts:52</a></div>
                 </td>
             </tr>
 
@@ -343,8 +343,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/channels/services/Channels.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="41"
+                            class="link-to-prism">src/app/channels/services/Channels.service.ts:41</a></div>
                 </td>
             </tr>
 
@@ -375,15 +375,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>update(item: <a href="../classes/Channel.html" target="_self">Channel</a>)</code>
+                    <code>update(channel: <a href="../classes/Channel.html" target="_self">Channel</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/channels/services/Channels.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/channels/services/Channels.service.ts:30</a></div>
                 </td>
             </tr>
 
@@ -404,7 +404,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>channel</td>
                                     <td>
                                                 <code><a href="../classes/Channel.html" target="_self" >Channel</a></code>
                                     </td>
@@ -505,9 +505,9 @@
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
-import { HttpClient } from &#x27;@angular/common/http&#x27;;
+import { HttpClient, HttpErrorResponse } from &#x27;@angular/common/http&#x27;;
 import { environment } from &#x27;src/environments/environment&#x27;;
-import { BehaviorSubject, Observable } from &#x27;rxjs&#x27;;
+import { BehaviorSubject, catchError, Observable, tap, throwError } from &#x27;rxjs&#x27;;
 import { Channel } from &#x27;src/app/core/models/channel&#x27;;
 @Injectable({
   providedIn: &#x27;root&#x27;,
@@ -522,22 +522,38 @@ export class ChannelsService {
     this.getChannels();
   }
 
+  /*
+   * Function to add a Channel using POST method
+   */
   public add(item: Channel): Observable&lt;Channel&gt; {
     return this.httpClient.post&lt;Channel&gt;(&#x60;${this.urlApi}/channels&#x60;, item);
   }
 
-  public update(item: Channel): Observable&lt;Channel&gt; {
+  /*
+   * Function to update an existing Channel using POST method
+   */
+
+  public update(channel: Channel): Observable&lt;Channel&gt; {
     return this.httpClient.put&lt;Channel&gt;(
-      &#x60;${this.urlApi}/channels/&#x60; + item.id,
-      item
+      &#x60;${this.urlApi}/channels/&#x60; + channel.id,
+      channel
     );
   }
 
+  /*
+   * Function to get all Channels
+   * to refresh our collection$
+   */
   public getChannels() {
     this.httpClient
       .get&lt;Channel[]&gt;(this.urlApi + &#x60;/channels&#x60;)
       .subscribe((receivedItems) &#x3D;&gt; this.collection$.next(receivedItems));
   }
+
+  /*
+   * function to delete a specific Channel
+   * using an id
+   */
 
   public delete(id: number): Observable&lt;Channel&gt; {
     return this.httpClient.delete&lt;Channel&gt;(&#x60;${this.urlApi}/channels/&#x60; + id);
