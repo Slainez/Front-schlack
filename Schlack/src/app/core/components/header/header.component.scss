@@ -14,8 +14,17 @@ h1 {
   margin-right: 5px;
 }
 
-.btn {
+.btn-logout {
   margin-top: 8px;
+}
+
+.btn-send {
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#pseudo {
+  margin-bottom: 10px;
 }
 
 .pseudo{
@@ -26,7 +35,10 @@ h1 {
   display: flex;
   position: absolute;
   right: 0;
-  margin-top: 12px;
+  margin-top: 9px;
   margin-right: 20px;
 }
 
+#test {
+  margin-bottom: 10px;
+}
