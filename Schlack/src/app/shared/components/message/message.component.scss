@@ -1,0 +1,46 @@
+div.card {
+  // padding-top: 10px;
+  // padding-left: 10px;
+  // margin-top: 10px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  background-color: #1A1D21;
+}
+
+div.card :hover {
+  // padding: 0 0 0 10px;
+  background-color: #222529;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  color: white;
+}
+.hover-text {
+  display: flex ;
+  justify-content:flex-end ;
+}
+.card:hover .tooltip-text {
+  visibility: visible;
+}
+.card {
+  border : none ;
+  border-radius: 0;
+}
+
+.card-body {
+  padding: 0 0 0 10px;
+}
+
+
+
+.card-title {
+  font-weight: bold;
+  color: #d1d2d3;
+}
+
+span.card-text {
+  color: #d1d2d3;
+}
+
+

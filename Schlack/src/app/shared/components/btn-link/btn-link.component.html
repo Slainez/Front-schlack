@@ -1,0 +1,7 @@
+<div class="test" routerLinkActive="active">
+  <!-- <ng-content select=".hashtag"></ng-content> -->
+  <a class="nav-items" [routerLink]="link">
+    <i class="fa-solid fa-hashtag"></i>{{name}}
+  </a>
+  <ng-content select=".buttons"></ng-content>
+</div>

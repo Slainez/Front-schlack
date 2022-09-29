@@ -4,6 +4,9 @@
 
 export const environment = {
   production: false,
+  /*
+   * base url for our Backend API
+   */
   urlApi: 'http://localhost:8080/v1',
 };
 

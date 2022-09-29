@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label id="modal-title" for="name">Modifier le nom du channel</label>
+    <p class="validator-text">(Entre 2 et 15 Charactères)</p>
+    <input type="text" class="form-control" id="name" [value]="name" formControlName="name">
+    <div class="alert alert-danger" *ngIf="form.controls['name'].invalid && form.controls['name'].touched">
+      Champ invalide
+    </div>
+  </div>
+  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Modifier</button>
+</form>

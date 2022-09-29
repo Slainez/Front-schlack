@@ -6,14 +6,21 @@ import { TemplatesModule } from '../templates/templates.module';
 import { HeaderComponent } from './components/header/header.component';
 import { NavComponent } from './components/nav/nav.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SharedModule } from '../shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MessagesModule } from '../messages/messages.module';
 
 @NgModule({
-  declarations: [
+  declarations: [HeaderComponent, NavComponent, FooterComponent],
+  imports: [CommonModule, SharedModule, MessagesModule, NgbModule, FontAwesomeModule],
+  exports: [
+    UiModule,
+    IconsModule,
+    TemplatesModule,
     HeaderComponent,
     NavComponent,
-    FooterComponent
+    FooterComponent,
   ],
-  imports: [CommonModule],
-  exports: [UiModule, IconsModule, TemplatesModule, HeaderComponent, NavComponent, FooterComponent],
 })
 export class CoreModule {}

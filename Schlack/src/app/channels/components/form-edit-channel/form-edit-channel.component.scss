@@ -1,0 +1,27 @@
+.form-group{
+  margin: 30px;
+}
+Form {
+  .ng-valid.ng-touched {
+    border: 2px solid var(--app-success);
+  }
+  .ng-invalid.ng-touched {
+    border: 2px solid var(--app-error);
+  }
+}
+
+#modal-title {
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.validator-text {
+  margin-left: 25px;
+}
+
+button {
+  margin-bottom: 30px;
+  margin-left: 104px;
+}
+
+
