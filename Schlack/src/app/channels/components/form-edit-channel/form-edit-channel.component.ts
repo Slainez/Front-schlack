@@ -1,9 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ChannelType } from 'src/app/core/enums/channel-type';
-import { Channel } from 'src/app/core/models/channel';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ChannelsService } from '../../services/Channels.service';
 
 @Component({
@@ -12,19 +10,14 @@ import { ChannelsService } from '../../services/Channels.service';
   styleUrls: ['./form-edit-channel.component.scss'],
 })
 export class FormEditChannelComponent implements OnInit {
-  public channel: Channel;
   public form!: FormGroup;
-  public types: string[];
   @Input() id!: number;
   @Input() name!: string;
   constructor(
     private formBuilder: FormBuilder,
     private channelService: ChannelsService,
     private modal: NgbActiveModal
-  ) {
-    this.channel = new Channel();
-    this.types = Object.values(ChannelType);
-  }
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -32,6 +25,13 @@ export class FormEditChannelComponent implements OnInit {
       id: [this.id],
     });
   }
+
+  /*
+   * Function to update a Channel using UPDATE method
+   * close the modal and call getChannels to refresh
+   * collection$
+   */
+
   public onSubmit() {
     this.channelService.update(this.form.value).subscribe((data) => {
       this.modal.close('Close click');
