@@ -6,3 +6,6 @@
     msg={{item.content}} user={{item.user}} date="{{item.timestamp}}">
   </app-message>
 </div>
+<div *ngIf="christophe$ | async as message ">
+  <p>{{ message }}</p>
+</div>

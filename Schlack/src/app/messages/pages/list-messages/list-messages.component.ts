@@ -18,6 +18,7 @@ import { getIdFromUrl } from 'src/app/shared/utils/getIdFromUrl';
 export class ListMessagesComponent implements OnInit, OnChanges {
   public collection!: Message[];
   public id!: number;
+  public christophe$ = this.messagesService.christophe$ ;
   constructor(public messagesService: MessagesService, public router: Router) {
     this.getIdOfChannelFromUrl();
   }
