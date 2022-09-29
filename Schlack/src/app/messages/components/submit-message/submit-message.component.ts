@@ -26,7 +26,10 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
   public pseudo!: string | null;
   editorConfig: AngularEditorConfig = editorConfig;
 
-  constructor(private messagesService: MessagesService, public router: Router) {
+  greeting: any;
+  name!: string;
+
+  constructor(public messagesService: MessagesService, public router: Router) {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
@@ -52,9 +55,18 @@ export class SubmitMessageComponent implements OnInit, OnChanges {
   }
   ngOnChanges(): void {}
   public onSubmit() {
+    // this.messagesService.newmessage = this.form.value.content;
+    // console.log(
+    //   'this.messagesService.newmessage------',
+    //   this.messagesService.newmessage
+    // );
+
+    // this.messagesService.connect();
     this.form.value.channel.id = this.id;
     this.form.value.timestamp = Date.now();
-    this.messagesService.add(this.form.value);
+    // this.messagesService.add(this.form.value);
+    this.messagesService._send(this.id);
+
     this.form.controls[`content`].reset();
   }
 }
