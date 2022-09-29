@@ -27,38 +27,54 @@ export class NavComponent implements OnInit {
     private channelsService: ChannelsService,
     private modalService: NgbModal
   ) {
+    /*
+     * subscribe to our Channel collection to get list of channels
+     * to display channel navigation
+     */
     this.channelsService.collection$.subscribe((data) => {
       this.collection = data;
     });
   }
+
+  /*
+   * open modal for our createChannel
+   */
   open() {
-    const modalRef = this.modalService.open(FormChannelComponent, {
-      size: 'sm',
-      centered: true,
-      animation: true,
-      // backdrop: 'static',
-    });
-    modalRef.componentInstance.name = 'World';
+    this.openModal(FormChannelComponent);
   }
+
+  /*
+   * open modal for our editChannel
+   */
+
   edit(id: number, name: string) {
-    const modalRef = this.modalService.open(FormEditChannelComponent, {
-      size: 'sm',
-      centered: true,
-      animation: true,
-    });
-    modalRef.componentInstance.id = id;
-    modalRef.componentInstance.name = name;
+    this.openModal(FormEditChannelComponent, id, name);
   }
+
+  /*
+   * open modal for our deleteChannel
+   */
 
   delete(id: number, name: string) {
-    const modalRef = this.modalService.open(FormDeleteChannelComponent, {
+    this.openModal(FormDeleteChannelComponent, id, name);
+  }
+
+  /*
+   * generic function for modal opening
+   */
+
+  openModal(component: any, id?: number, name?: string) {
+    const modalRef = this.modalService.open(component, {
       size: 'sm',
       centered: true,
       animation: true,
     });
-    modalRef.componentInstance.id = id;
-    modalRef.componentInstance.name = name;
+    if (id != undefined) {
+      modalRef.componentInstance.id = id;
+    }
+    if (name != undefined) {
+      modalRef.componentInstance.name = name;
+    }
   }
-
   ngOnInit(): void {}
 }

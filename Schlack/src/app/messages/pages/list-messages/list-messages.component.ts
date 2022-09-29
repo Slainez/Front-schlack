@@ -8,6 +8,7 @@ import {
 import { filter } from 'rxjs';
 import { Message } from 'src/app/core/models/message';
 import { MessagesService } from '../../services/messages.service';
+import { getIdFromUrl } from 'src/app/shared/utils/getIdFromUrl';
 
 @Component({
   selector: 'app-list-messages',
@@ -17,33 +18,29 @@ import { MessagesService } from '../../services/messages.service';
 export class ListMessagesComponent implements OnInit, OnChanges {
   public collection!: Message[];
   public id!: number;
-  constructor(
-    private route: ActivatedRoute,
-    public messagesService: MessagesService,
-    public router: Router
-  ) {
-    // this.messagesService.collection2$.subscribe((data) => {
-    //   this.collection = data;
-    //   console.log('this.collection 2------' + data);
-    // });
+  constructor(public messagesService: MessagesService, public router: Router) {
+    this.getIdOfChannelFromUrl();
+  }
 
+  /*
+   * get the id of channel from url on url change
+   */
+  public getIdOfChannelFromUrl() {
     this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event) => {
-        this.id = this.route.snapshot.params['id'];
-        messagesService.getAllMessagesFromChannel2(this.id);
+        this.id = getIdFromUrl(this.router);
+        this.messagesService.getAllMessagesFromChannel2(this.id);
         this.messagesService.collection2$.subscribe((data) => {
           this.collection = data;
         });
-        // messagesService.getAllMessagesFromChannel(this.id);
-        // this.messagesService.collection$.subscribe((data) => {
-        //   this.collection = data;
-        // });
       });
   }
-
   ngOnChanges(): void {
-    this.id = this.route.snapshot.params['id'];
+    /*
+     * get the id of channel from url
+     */
+    this.id = getIdFromUrl(this.router);
   }
 
   ngOnInit(): void {}

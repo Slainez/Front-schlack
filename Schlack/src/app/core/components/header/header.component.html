@@ -1,11 +1,10 @@
-<div class="container text-center">
+<div class="container">
   <div class="row">
     <div class="col title">
       <h1>Schlack</h1>
     </div>
     <div class="col-3" *ngIf="isPseudoExist">
-      <p class="greetings">Bonjour </p>
-      <p class="pseudo">{{pseudo}}</p>
+      Bonjour {{pseudo}} <button (click)="forgetPseudo()">Oublier mon pseudo</button>
     </div>
     <div class="col-3" *ngIf="!isPseudoExist">
       <form (ngSubmit)="onSubmit()" [formGroup]="pseudoGroup">

@@ -12,11 +12,14 @@ export class HeaderComponent implements OnInit {
   public pseudoGroup!: FormGroup;
 
   constructor() {
+    /*
+     * check if pseudo is not set in localstorage
+     * and display form to set pseudo
+     * if its already set display welcome pseudo
+     */
     if (localStorage.getItem('pseudo') === null) {
-      console.log('null');
       this.isPseudoExist = false;
     } else {
-      console.log('not null');
       this.isPseudoExist = true;
       this.pseudo = localStorage.getItem('pseudo');
     }
@@ -29,7 +32,14 @@ export class HeaderComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log('toto = ', this.pseudoGroup.value);
     localStorage.setItem('pseudo', this.pseudoGroup.value.pseudo);
+    this.isPseudoExist = true;
+    this.pseudo = localStorage.getItem('pseudo');
+  }
+
+  public forgetPseudo(): void {
+    localStorage.removeItem('pseudo');
+    this.pseudo = null;
+    this.isPseudoExist = false;
   }
 }
