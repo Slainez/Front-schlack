@@ -378,8 +378,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/channels/components/form-edit-channel/form-edit-channel.component.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/channels/components/form-edit-channel/form-edit-channel.component.ts:42</a></div>
                 </td>
             </tr>
 
@@ -518,7 +518,14 @@ export class FormEditChannelComponent implements OnInit {
 
   ngOnInit(): void {
     this.form &#x3D; this.formBuilder.group({
-      name: [this.name, [Validators.required, Validators.minLength(2)]],
+      name: [
+        this.name,
+        [
+          Validators.required,
+          Validators.minLength(2),
+          Validators.maxLength(15),
+        ],
+      ],
       id: [this.id],
     });
   }
@@ -535,7 +542,8 @@ export class FormEditChannelComponent implements OnInit {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;form [formGroup]&#x3D;&quot;form&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
   &lt;div class&#x3D;&quot;form-group&quot;&gt;
-    &lt;label for&#x3D;&quot;name&quot;&gt;Modifier le nom du channel&lt;/label&gt;
+    &lt;label id&#x3D;&quot;modal-title&quot; for&#x3D;&quot;name&quot;&gt;Modifier le nom du channel&lt;/label&gt;
+    &lt;p class&#x3D;&quot;validator-text&quot;&gt;(Entre 2 et 15 Charactères)&lt;/p&gt;
     &lt;input type&#x3D;&quot;text&quot; class&#x3D;&quot;form-control&quot; id&#x3D;&quot;name&quot; [value]&#x3D;&quot;name&quot; formControlName&#x3D;&quot;name&quot;&gt;
     &lt;div class&#x3D;&quot;alert alert-danger&quot; *ngIf&#x3D;&quot;form.controls[&#x27;name&#x27;].invalid &amp;&amp; form.controls[&#x27;name&#x27;].touched&quot;&gt;
       Champ invalide
@@ -550,9 +558,8 @@ export class FormEditChannelComponent implements OnInit {
                 <p class="comment">
                     <code>./form-edit-channel.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">*{
-  margin: 10px;
-  padding: 5px;
+                <pre class="line-numbers"><code class="language-scss">.form-group{
+  margin: 30px;
 }
 Form {
   .ng-valid.ng-touched {
@@ -562,6 +569,22 @@ Form {
     border: 2px solid var(--app-error);
   }
 }
+
+#modal-title {
+  font-weight: 600;
+  margin-left: 20px;
+}
+
+.validator-text {
+  margin-left: 25px;
+}
+
+button {
+  margin-bottom: 30px;
+  margin-left: 104px;
+}
+
+
 </code></pre>
     </div>
 
@@ -590,8 +613,8 @@ Form {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="form" (ngSubmit)="onSubmit()">  <div class="form-group">    <label for="name">Modifier le nom du channel</label>    <input type="text" class="form-control" id="name" [value]="name" formControlName="name">    <div class="alert alert-danger" *ngIf="form.controls[\'name\'].invalid && form.controls[\'name\'].touched">      Champ invalide    </div>  </div>  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Modifier</button></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'ModalComponent', 'selector': 'app-modal'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="form" (ngSubmit)="onSubmit()">  <div class="form-group">    <label id="modal-title" for="name">Modifier le nom du channel</label>    <p class="validator-text">(Entre 2 et 15 Charactères)</p>    <input type="text" class="form-control" id="name" [value]="name" formControlName="name">    <div class="alert alert-danger" *ngIf="form.controls[\'name\'].invalid && form.controls[\'name\'].touched">      Champ invalide    </div>  </div>  <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Modifier</button></form></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BtnLinkComponent', 'selector': 'app-btn-link'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'FormChannelComponent', 'selector': 'app-form-channel'},{'name': 'FormDeleteChannelComponent', 'selector': 'app-form-delete-channel'},{'name': 'FormEditChannelComponent', 'selector': 'app-form-edit-channel'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'ListMessagesComponent', 'selector': 'app-list-messages'},{'name': 'MessageComponent', 'selector': 'app-message'},{'name': 'NavComponent', 'selector': 'app-nav'},{'name': 'PageAddChannelComponent', 'selector': 'app-page-add-channel'},{'name': 'PageNotFoundComponent', 'selector': 'app-page-not-found'},{'name': 'SubmitMessageComponent', 'selector': 'app-submit-message'},{'name': 'TemplateContainerComponent', 'selector': 'app-template-container'},{'name': 'UiComponent', 'selector': 'app-ui'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'FormEditChannelComponent'};
 </script>

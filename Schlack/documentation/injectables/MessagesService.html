@@ -197,8 +197,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/messages/services/messages.service.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/messages/services/messages.service.ts:38</a></div>
                 </td>
             </tr>
 
@@ -268,8 +268,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">src/app/messages/services/messages.service.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="26"
+                            class="link-to-prism">src/app/messages/services/messages.service.ts:26</a></div>
                 </td>
             </tr>
 
@@ -435,22 +435,25 @@ export class MessagesService {
 
   constructor(private httpClient: HttpClient) {
     this.urlApi &#x3D; environment.urlApi;
-    // this.collection$ &#x3D; this.httpClient.get&lt;Message[]&gt;(
-    //   &#x60;${this.urlApi}/messages&#x60;
-    // );
   }
 
-  // public getAllMessagesFromChannel(id: number) {
-  //   this.collection$ &#x3D; this.httpClient.get&lt;Message[]&gt;(
-  //     &#x60;${this.urlApi}/messages/&#x60; + id
-  //   );
-  // }
+  /*
+   * function to get Messages from a specific Channel
+   * to refresh our collection2$
+   */
 
   public getAllMessagesFromChannel2(id: number) {
     this.httpClient
       .get&lt;Message[]&gt;(&#x60;${this.urlApi}/messages/&#x60; + id)
       .subscribe((receivedItems) &#x3D;&gt; this.collection2$.next(receivedItems));
   }
+
+  /*
+   * Function to add a Message using POST method
+   * and call getAllMessagesFromChannel2 to refresh
+   * our messages from a specific Channel
+   */
+
   public add(msg: Message) {
     this.httpClient
       .post&lt;Message&gt;(&#x60;${this.urlApi}/messages&#x60;, msg)
