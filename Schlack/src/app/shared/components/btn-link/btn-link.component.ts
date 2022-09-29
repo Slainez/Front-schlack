@@ -6,6 +6,11 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: './btn-link.component.html',
   styleUrls: ['./btn-link.component.scss'],
 })
+/**
+ *
+ * @Description this component is used to display a nav element
+ *
+ */
 export class BtnLinkComponent implements OnInit {
   @Input() public link!: string;
   @Input() public name!: string;

@@ -1,5 +1,5 @@
 import { Component, HostListener, OnChanges, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessagesService } from '../../services/messages.service';
 import {
   faPaperPlane,
@@ -31,7 +31,7 @@ export class SubmitMessageComponent implements OnInit {
   ngOnInit(): void {
     this.id = getIdFromUrl(this.router);
     this.form = new FormGroup({
-      content: new FormControl(''),
+      content: new FormControl('', Validators.required),
       user: new FormControl(''),
       channel: new FormControl({ id: this.id }),
     });
@@ -59,6 +59,9 @@ export class SubmitMessageComponent implements OnInit {
   }
   public onSubmit() {
     this.form.value.user = localStorage.getItem('pseudo');
+    if (this.form.value.user === null) {
+      this.form.value.user = 'Guest' + Math.floor(Math.random() * 666);
+    }
     this.form.value.channel.id = this.id;
     this.form.value.timestamp = Date.now();
     this.messagesService.add(this.form.value);
