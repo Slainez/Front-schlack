@@ -3,9 +3,6 @@
     <h5 class="card-title" *ngIf="user != previousUser">{{ user}}</h5>
     <h6 class="card-subtitle text-muted mb-2" *ngIf="user != previousUser">{{ date |date :'HH:mm' }}</h6>
     <span ngbTooltip="{{ date |date:'HH:mm dd/MM/yy' }}" [openDelay]="100" [closeDelay]="300"
-      triggers="mouseenter:mouseleave" placement="top" class="card-text" [innerHTML]="htmlString"></span>
-    <div class="hover-text ">
-
-    </div>
+      triggers="mouseenter:mouseleave" placement="right" class="card-text" [innerHTML]="htmlString"></span>
   </div>
 </div>
